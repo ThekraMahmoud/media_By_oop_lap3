@@ -42,10 +42,10 @@ public class Review {
 
     @Override
     public String toString() {
-        return "Review{" +
-                "userName='" + userName + '\'' +
+        return "Review{" +'\n'+
+                "userName='" + userName + '\'' +'\n'+
                 ", rating=" + rating +
-                ", comment='" + comment + '\'' +
+                ", comment='" + comment + '\'' +'\n'+
                 '}';
     }
 }

@@ -35,6 +35,7 @@ public class Music extends Media {
         for (int i = 0; i < musicCatalog.size(); i++) {
             Music music = musicCatalog.get(i);
             if (music.getArtist().equals(this.artist)) {
+
                 playList.add(music);
             }
         }return playList;
@@ -46,7 +47,8 @@ public class Music extends Media {
 
     @Override
     public String toString() {
-        return "Music{" +
+        return "Music{" +'\n'+
+                "title ="+getTitle()+'\n'+
                 "artist='" + artist + '\'' +
                 '}';
     }

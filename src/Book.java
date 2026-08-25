@@ -75,8 +75,8 @@ public class Book extends Media {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "stock=" + stock +
+        return "Book{" +'\n'+
+                "stock=" + stock +'\n'+
                 ", reviews=" + reviews +
                 '}';
     }
