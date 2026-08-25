@@ -121,6 +121,20 @@ void main() {
     System.out.println(user.getPurchaseMedia());
 
 
+
+
+    System.out.println("\n========== Noval ==========");
+
+
+    ArrayList<Review>r3=new ArrayList<>();
+    r3.add(review1);
+    r3.add(review2);
+Novel n1=new Novel("ABC","OLI","998",5.8,7,r3,"io");
+    System.out.println("Average Rating :"+n1.getAverageRating());
+    System.out.println("Is Best ? "+n1.getMediaType());
+
+
+
     System.out.println("\n========== END ==========");
 }
 
