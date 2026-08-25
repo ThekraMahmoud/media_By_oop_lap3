@@ -1,17 +1,23 @@
+import java.util.ArrayList;
+
 public class AcademicBook extends Book{
 
     private String subject;
 
-    public AcademicBook(int stock, Review[] reviews, String subject) {
+
+    public AcademicBook(String subject) {
+        this.subject = subject;
+    }
+
+    public AcademicBook(int stock, ArrayList<Review> reviews, String subject) {
         super(stock, reviews);
         this.subject = subject;
     }
 
-    public AcademicBook(String title, String auteur, String ISBN, double price, int stock, Review[] reviews, String subject) {
+    public AcademicBook(String title, String auteur, String ISBN, double price, int stock, ArrayList<Review> reviews, String subject) {
         super(title, auteur, ISBN, price, stock, reviews);
         this.subject = subject;
     }
-
 
     public String getSubject() {
         return subject;
@@ -21,9 +27,14 @@ public class AcademicBook extends Book{
         this.subject = subject;
     }
 
-    public String getMediaType(String media) {
-        return media;
+    public String getMediaType() {
+        if(getAverageRating()>=4.5){
+            return "Bestselling AcademicBook";
+        }else {
+            return "AcademicBook"  ;
+        }
     }
+
 
     @Override
     public String toString() {
@@ -32,3 +43,6 @@ public class AcademicBook extends Book{
                 '}';
     }
 }
+
+
+

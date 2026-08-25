@@ -9,7 +9,7 @@ public class Movie extends Media{
         this.duration = duration;
     }
 
-    public Movie(Media title, String auteur, String ISBN, double price, int duration) {
+    public Movie(String title, String auteur, String ISBN, double price, int duration) {
         super(title, auteur, ISBN, price);
         this.duration = duration;
     }
@@ -26,24 +26,27 @@ public class Movie extends Media{
 
 
     public void watch(User user){
-
-        User u=new User();
-        u.getPurchaseMedia().add(getTitle());
+        user.getPurchaseMedia().add(this);
+        System.out.println(user.getUserName()+" Watch :"+getTitle());
     }
 
-    public ArrayList<Movie>movieCatalog(ArrayList<Movie>m){
-        m.contains(getAuteur());
-        return movieCatalog(m);
+    public ArrayList<Movie>recommendSimilarMovies(ArrayList<Movie>movieCatalog){
+        ArrayList<Movie>recommendSimilarMovies=new ArrayList<>();
+
+        for(int i =0;i<movieCatalog.size();i++){
+            if (movieCatalog.get(i).getAuteur().equals(this.getAuteur())){
+                recommendSimilarMovies.add(movieCatalog.get(i));
+            }
+        }            return recommendSimilarMovies;
+
     }
 
 
-
-
-    public String getMediaType(Media media){
+    public String getMediaType(){
         if (duration>=120){
             return "Long Movie";
         }else {
-            return "move";
+            return "Movie";
         }
 
     }
