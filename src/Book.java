@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Book extends Media {
 
     private int stock;
-    private ArrayList<Review> reviews;
+    private ArrayList<Review> reviews=new ArrayList<>();
 
 
     public Book() {
