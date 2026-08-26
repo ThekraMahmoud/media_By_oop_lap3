@@ -42,7 +42,12 @@ public class Music extends Media {
     }
 
     public String getMediaType() {
+        if (getPrice()>=10){
+            return "Premium Music";
+        }else {
         return "Music";
+    }
+
     }
 
     @Override

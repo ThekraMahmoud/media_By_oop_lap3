@@ -75,8 +75,15 @@ public class Book extends Media {
 
 
     public String getMediaType() {
-        return "Book";
-    }
+
+
+        if (getAverageRating()>4.5){
+            return "Bestselling Book";
+        }else {
+            return "Book";
+        }
+
+   }
 
     @Override
     public String toString() {
