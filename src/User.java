@@ -55,8 +55,16 @@ public class User {
 
 
     public void addToCart(Media media) {
-        shoppingCart.add(media);
+       if( media instanceof Book){
+          if(((Book) media).getStock()<=0){
+              System.out.println("Finsh");
+          }
+          else {
+              shoppingCart.add(media);
+              System.out.println("Add Successfully");
 
+          }
+       }
     }
 
 
@@ -68,23 +76,23 @@ public class User {
 
     public void checkOut() {
 
-//هنا فقط عينت  object
-        purchaseMedia.addAll(shoppingCart);
-        for(int i=0;i<shoppingCart.size();i++){
-           Media media=shoppingCart.get(i);
-           if(media instanceof Book){
-               //كاني اقوله الوسائط اعتبرها بوك وتعامل معاها زي البوك
-
-               //نا تأكدت أن الـobject الموجود في media هو من نوع Book، لذلك سويت Casting وخليت Java تتعامل مع نفس الـobject على أنه Book حتى أقدر أستخدم getStock() و setStock().
-               Book book=(Book)media;
-               int stock=book.getStock();
-               book.setStock(stock-1);
+        if (!shoppingCart.isEmpty()) {
+            //هنا فقط عينت  object
+            purchaseMedia.addAll(shoppingCart);
         }
+        for (Media media : shoppingCart) {
+            if (media instanceof Book) {
+                //كاني اقوله الوسائط اعتبرها بوك وتعامل معاها زي البوك
+
+                //نا تأكدت أن الـobject الموجود في media هو من نوع Book، لذلك سويت Casting وخليت Java تتعامل مع نفس الـobject على أنه Book حتى أقدر أستخدم getStock() و setStock().
+                Book book = (Book) media;
+                int stock = book.getStock();
+                book.setStock(stock - 1);
+            }
 
         }
 
         shoppingCart.clear();
-
 
 
     }

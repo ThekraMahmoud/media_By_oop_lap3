@@ -49,7 +49,12 @@ public class Book extends Media {
 
     public void purchase(User user) {
         user.getPurchaseMedia().add(this);
-        stock = stock - 1;
+
+        if (stock==0){
+            System.out.println("Tha Book quintet is Finished");
+        }else {
+            stock = stock - 1;
+        }
     }
 
 

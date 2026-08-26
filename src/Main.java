@@ -15,11 +15,14 @@ void main() {
     System.out.println("Email: " + user.getEmail());
 
 
+
+
+
     System.out.println("\n========== BOOK ==========");
 
     // إنشاء Book
     Book book1 = new Book();
-    book1.setStock(10);
+    book1.setStock(5);
 
     System.out.println("Initial Stock: " + book1.getStock());
 
@@ -61,9 +64,14 @@ void main() {
     System.out.println("\n========== PURCHASE ==========");
 
     // شراء الكتاب
+
+
     book1.purchase(user);
     System.out.println("Stock after purchase: "
             + book1.getStock());
+
+    user.checkOut();
+
 
 
     System.out.println("\n========== MUSIC ==========");
@@ -134,6 +142,10 @@ Novel n1=new Novel("ABC","OLI","998",5.8,7,r3,"io");
     System.out.println("Is Best ? "+n1.getMediaType());
 
 
+
+    System.out.println("\n========== Checkout ==========");
+user.addToCart(book1);
+user.checkOut();
 
     System.out.println("\n========== END ==========");
 }
